@@ -1,0 +1,18 @@
+# Java
+/backend/target/
+*.class
+
+# Python
+/ai-module/venv/
+/__pycache__/
+/*.pyc
+
+# Node (React)
+/frontend/node_modules/
+*.log
+
+# OS
+.DS_Store
+
+# Env files
+.env

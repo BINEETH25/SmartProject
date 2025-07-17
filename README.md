@@ -1,0 +1,1 @@
+# SmartProject: Full Stack + AI Application
