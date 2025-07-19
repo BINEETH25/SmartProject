@@ -5,6 +5,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src = "https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
     </head>
     <!-- head -> section doesn't visible on page-->
     <!-- body -> section visible on page -->
@@ -17,6 +18,15 @@
                 const [sockCost, setSockCost] = useState(0);
                 const [tshirtCost, setTshirtCost] = useState(0);
                 const shippingCost = productCost > 0 ? 5 : 0;
+                let day = dayjs().format('MMMM D');
+                console.log(day);
+                let time = dayjs().format('HH:mm:ss');
+                console.log(time);
+                setInterval(() => {
+                    const day = dayjs().format('MMMM D');
+                    const time = dayjs().format('HH:mm:ss');
+                    document.getElementById('clock').innerText = `${day} - ${time}`;
+                }, 1000);
                 const handleAddToCart = (price) => {
                     setProductCost(prevCost => {
                         const updatedCost = prevCost + price;
@@ -70,6 +80,8 @@
                             <p><strong>Grand Product Cost: ${productCost}</strong></p>
                             <p><strong>Shipping Cost : $ 5</strong></p>
                             <p><strong>Total Cost : $ {productCost + shippingCost}</strong></p>
+                            <p>Today is {day} and Current Time : {time}</p>
+                            <p id = "clock"></p>
                         </div>
                     </>
                 );
